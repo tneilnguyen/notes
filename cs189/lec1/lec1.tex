@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage{geometry, amsmath, amssymb, hyperref}
+\usepackage[noend]{algpseudocode}
+\frenchspacing
+\begin{document}
+\title{CS 189: Introduction to Machine Learning}
+\author{Scribe: Tyler Nguyen}
+\date{Lecture 1: January 18, 2017}
+\maketitle
+\section*{Administrative Matters}
+Website: \url{http://www.cs.berkeley.edu/~jrs/189}\\
+Questions: Please use Piazza, not email.\\
+For personal matters only, \href{mailto:jrs@cory.eecs.berkeley.edu}{\nolinkurl{jrs@cory.eecs.berkeley.edu}}.
+\subsection*{Prerequisites}
+\begin{itemize}
+\item Math 53 (vector calculus)
+\item Math 54 or 110 (linear algebra)
+\item CS 70 (probability)
+\item Not CS 188
+\end{itemize}
+\subsection*{Grading}
+\begin{itemize}
+\item 40\% 7 Homeworks:  Late policy: 5 slip days total.
+\item 20\% Midterm: Wednesday, March 15, in class.
+\item 40\% Final Exam: Moved to Monday, May 8, 3-6 PM (Exam group 3).
+\end{itemize}
+\subsection*{Cheating}
+\begin{itemize}
+\item Discussion of HW problems is encouraged.
+\item All homeworks, especially programming, must be written individually.
+\item We will actively check for plagiarism.
+\item Typical penalty is a large negative score, but I reserve the right to give an instant F for even one violation, and always give an F for two.
+\end{itemize}
+\section{Core Material}
+\begin{itemize}
+\item Finding patterns in data; using them to make predictions.
+\item Models and statistics help us understand patterns.
+\item Optimization algorithms ``learn'' the patterns.
+\end{itemize}
+\section{Classifiers}
+\begin{itemize}
+\item Decision boundary: Separating boundary between two classifications.
+\item Nearest neighbor: Classify according to nearest data point in training set. Possibly overfitting.
+\item Linear: Linear decision boundary.
+\item \(k\)-nearest neighbor cluster: Classify according to \(k\) nearest data point(s) in training set.  ``Smoother'' decision boundary.
+\end{itemize}
+\subsection{Classifiying digits}
+Images (arrays of pixel intensity values) are points in \(m \times n\)-dimensional space:
+\[\begin{bmatrix}
+3 & 3 & 3 & 3\\
+0 & 0 & 2 & 3\\
+0 & 0 & 1 & 3\\
+3 & 3 & 3 & 3\\
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+3\\
+3\\
+3\\
+3\\
+0\\
+0\\
+2\\
+3\\
+0\\
+0\\
+1\\
+3\\
+3\\
+3\\
+3\\
+3\\
+\end{bmatrix}
+\]
+Linear decision boundary is a hyperplane.
+\subsection{Validation}
+\begin{itemize}
+\item \textbf{Train} a classifier: it \textbf{learns} to distinguish 7 from not 7.
+\item \textbf{Test} the classifier on new images.
+\end{itemize}
+\subsubsection{2 kinds of error}
+\begin{enumerate}
+\item \textbf{Training set error}: fraction of training images not classified correctly.
+\item \textbf{Test set error}: fraction of misclassified new images, not used during training.
+\end{enumerate}
+\begin{itemize}
+\item \textbf{outliers}: points whose labels are atypical.
+\item \textbf{overfitting}: when the test error deteriorates because the classifier becomes too sensitive to outliers or other spurious patterns.
+\end{itemize}
+Most ML algorithms have a few \textbf{hyperparameters} that control over/underfitting, e.g. \(k\) in \(k\)-nearest neighbors.  We select them by \textbf{validation}:
+\begin{itemize}
+\item Hold back a subset of training data, called the \textbf{validation set}.
+\item Train the classifier multiple times with different hyperparameter settings.
+\item Choose the settings that work best on validation set.
+\end{itemize}
+Now we have 3 sets:
+\begin{itemize}
+\item \textbf{training set} used to learn model weights.
+\item \textbf{validation set} used to tune hyperparameters, choose among different models.
+\item \textbf{test set} used as final evaluation of model. Kept in a vault. Run once, at the very end.
+\end{itemize}
+\url{Kaggle.com}:
+\begin{itemize}
+\item Runs ML competitions, including our HWs
+\item We use 2 data sets:
+\begin{itemize}
+\item ``public'' set results available during competition
+\item ``private'' set revealed after due date
+\end{itemize}
+\end{itemize}
+\end{document}
