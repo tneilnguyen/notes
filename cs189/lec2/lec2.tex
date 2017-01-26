@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{geometry, amsmath, amssymb, hyperref}
+\usepackage[noend]{algpseudocode}
+\frenchspacing
+\begin{document}
+\title{CS 189: Introduction to Machine Learning}
+\author{Scribe: Tyler Nguyen}
+\date{Lecture 2: January 23, 2017}
+\maketitle
+\section{Classifiers}
+You are given \textbf{sample} of \(n\) \textbf{observations}, each with \(d\) \textbf{features}.  Some observations belong to \textbf{class} \(C\); some do not.  Example:
+\begin{itemize}
+\item Observations are bank loans
+\item Features are income and age (\(d=2\))
+\item Some are in class ``defaulted,'' some are not
+\item Goal: Predict whether future borrowers will default, based on their income and age.
+\end{itemize}
+Represent each observation as a point in a \(d\)-dimensional space, called a \textbf{sample point/feature vector/independent variables/predictors}.
+\end{document}

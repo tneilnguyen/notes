@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{geometry, amsmath, amssymb, hyperref}
+\usepackage[noend]{algpseudocode}
+\frenchspacing
+\begin{document}
+\title{CS 189: Introduction to Machine Learning}
+\author{Scribe: Tyler Nguyen}
+\date{Lecture 3: January 25, 2017}
+\maketitle
+\section{Perceptron Algorithm (cont'd)}
+\begin{itemize}
+\item linear decision function \(f(x) = w \cdot x\)
+\item decision boundary \(\{x: f(x) = 0\}\)
+\item sample points \(X_1, X_2, \dots, X_n \in \mathbb{R}^d\); classifications \(y_1, \dots, y_n = \pm 1\)
+\item goal: find weights \(w\) such that \(y_iX_i \cdot w \geq 0\)
+\item goal, rewritten: find \(w\) that minimizes \(R(w) = \sum_{i \in V} -y_iX_i \cdot w\)) where \(V\) is the set of indices \(i\) for which \(y_iX_i \cdot w < 0\).
+\end{itemize}
+Objects in \(x\)-space transform to objects in \(w\)-space:\\
+\begin{tabular}{|l|l|}
+\hline
+\(x\)-space & \(w\)-space\\
+\hline
+hyperplane: \(\{z: w \cdot z = 0\}\) & point: \(w\)\\
+point: \(x\) & hyperplane: \(\{z: x \cdot z = 0\}\)\\
+\hline
+\end{tabular}\\
+If we want to enforce inequality \(x \cdot w \geq 0\), that means:
+\begin{itemize}
+\item in \(x\)-space, \(x\) should be on the same side of \(\{z: z \cdot w = 0\}\) as \(w\)
+\item in \(w\)-space, \(w\) should be on the same side  of \(\{z: x \cdot z = 0\}\) as \(x\)
+\end{itemize}
+At any point \(w|)
+\end{document}
