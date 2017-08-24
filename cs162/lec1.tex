@@ -1,0 +1,170 @@
+\documentclass{article}
+\usepackage{geometry, textcomp}
+\frenchspacing
+\begin{document}
+\title{Computer Science 162: Operating Systems and Systems Programming}
+\author{Scribe: Tyler Nguyen}
+\date{Lecture 1: August 23, 2017}
+\maketitle
+\section{What is an operating system?}
+\begin{itemize}
+\item Special layer of software that provides application software access to hardware resources
+\begin{itemize}
+\item Convenient abstraction of complex hardware devices
+\item Protected access to shared resources
+\item Security and authentication
+\item Communication amongst logical entities
+\end{itemize}
+\end{itemize}
+\subsection{What Does an OS do?}
+\begin{itemize}
+\item Provide abstractions to apps
+\begin{itemize}
+\item File systems
+\item Processes, threads
+\item VM, containers
+\item Naming system
+\item \dots
+\end{itemize}
+\item Manage resouces:
+\begin{itemize}
+\item Memory, CPU, storage, \dots
+\end{itemize}
+\end{itemize}
+\subsection{OS Basics: ``Virtual Machine'' Boundary}
+\begin{itemize}
+\item Software
+\item OS Hardware Virtualiztion
+\begin{itemize}
+\item Threads
+\item Processes
+\item Address Spaces
+\item Files
+\item Windows
+\item Sockets
+\end{itemize}
+\item Hardware
+\begin{itemize}
+\item Processor
+\item Memory
+\item Storage
+\item Networks
+\item Inputs
+\item Displays
+\end{itemize}
+\end{itemize}
+\section{What makes Operating Systems exciting and challenging}
+\subsection{Technology Trends: Moore's Law}
+Moore's law: Gordon Moore (co-founder of Intel) predicted in 1965 that the transistor density of semiconductor chips would double roughly every 18 months.  Microprocessors have become smaller, denser, and more powerful.
+\subsection{New Challenge: Slowdown in Joy's law of Performance}
+\subsection{Another Challenge: Power Density}
+Super-exponential growth in power density.
+\begin{itemize}
+\item Moore's law extrapolation
+\begin{itemize}
+\item Potential power density reaching amazing levels!
+\end{itemize}
+\item Flip side: battery life more important
+\end{itemize}
+\section{People-to-Computer Ratio Over Time}
+\begin{itemize}
+\item Today: multiple CPUs per person!
+\begin{itemize}
+\item Approaching hundreds?
+\end{itemize}
+\end{itemize}
+\subsection{The End of Moore's Law\dots}
+\begin{itemize}
+\item Moore's Law has (officially) ended -- Feb 2016
+\begin{itemize}
+\item No longer getting \(2\times\) transistors per chip every 18 months\dots
+\item or even every 24 months
+\end{itemize}
+\item May have only 2-3 smallest geometry fabrication plants left:
+\begin{itemize}
+\item Intel and Samsung and/or TSMC
+\end{itemize}
+\item Vendors moving to 3D stacked chips
+\begin{itemize}
+\item More layers in older geometries
+\end{itemize}
+\end{itemize}
+\subsection{Storage Capacity}
+Increasing exponentially
+\subsection{Network Capacity}
+Increasing exponentially
+\subsection{Challenge: Complexity}
+\begin{itemize}
+\item Applications consisting of\dots
+\begin{itemize}
+\item \dots a variety of software modules that\dots
+\item \dots run on a variety of devices (machines) that
+\begin{itemize}
+\item \dots implement different hardware architectures
+\item \dots run competing applications
+\item \dots fail in unexpected ways
+\item \dots can be under a variety of attacks
+\end{itemize}
+\end{itemize}
+\item Not feasible to test software for all possible environments and combinations of components and devices
+\begin{itemize}
+\item The question is not whether there are bugs, but how serious they are!
+\end{itemize}
+\end{itemize}
+\subsection{How do we tame complexity?}
+\begin{itemize}
+\item Every piece of computer hardware different
+\begin{itemize}
+\item Different CPU
+\begin{itemize}
+\item Pentium, PowerPC, ColdFire, ARM, MIPS
+\end{itemize}
+\item Different amounds of memory, disk, \dots
+\item Different types of peripherals
+\begin{itemize}
+\item Mice, keyboards, sensors, cameras, fingerprint readers
+\end{itemize}
+\item Different networking environment
+\begin{itemize}
+\item Cable, DSL, Wireless, Firewalls
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\subsection{OS Tool: Virtual Machine Abstraction}
+\subsubsection{Virtual Machines}
+\begin{itemize}
+\item Software emulation of an abstract machine
+\begin{itemize}
+\item Give programs illusion they own the machine
+\item Make it look like hardware has features you want
+\end{itemize}
+\item Two types of ``Virtual Machines''
+\begin{itemize}
+\item Process VM: supports execution of a single program; this functionality is typically provided by OS
+\item System VM
+\end{itemize}
+\end{itemize}
+\subsubsection{Process VMs}
+\begin{itemize}
+\item Programming simplicity
+\begin{itemize}
+\item Each process thinks it has all memory/CPU time
+\item Each process thinks it owns all devices
+\item Different devices appear to have same high level interface
+\item Device interfaces more powerful than raw hardware
+\begin{itemize}
+\item Bitmapped display \textrightarrow windowing system
+\item Ethernet card \textrightarrow reliable, ordered, networking (TCP/IP)
+\end{itemize}
+\end{itemize}
+\item Fault isolation
+\end{itemize}
+\subsubsection{System Virtual Machines: Layers of OSs}
+\begin{itemize}
+\item Useful for OS development
+\begin{itemize}
+\item WHen an OS crashes, restricted to one VM
+\item Can aid testing programs on other OSs
+\end{itemize}
+\end{itemize}
+\end{document}
